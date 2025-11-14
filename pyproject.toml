@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "arxiv-agent"
+version = "0.1.0"
+description = "AI agent to download and structure papers and data from arXiv"
+authors = ["HCAI-USP <devnull@example.com>"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+# Runtime dependencies requested by the project. Versions are left broad so
+# Poetry will resolve the latest compatible releases. If you prefer pinned
+# versions, replace "*" with explicit constraints.
+arxiv = "^1.4"
+polars = "^0.18"
+toolz = "^0.12"
+openai = "^1.0"
+textual = "^0.24"
+rich = "^13.3"
+tenacity = "^8.2"
+httpx = {extras = ["http2"], version = "^0.24"}
+aiofiles = "^23.1"
+pymupdf = "^1.22"
+chromadb = "^0.4"
+aiosqlite = "^0.18"
+pydantic = ">=2.0,<3.0"
+glom = "^23.1"
+
+[tool.poetry.scripts]
+arxiv-agent = "arxiv_agent.__main__:main"
+
+[tool.poetry.group.dev]
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0"
+pytest-asyncio = "*"
+
+[build-system]
+requires = ["poetry-core>=1.5.0"]
+build-backend = "poetry.core.masonry.api"
